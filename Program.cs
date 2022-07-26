@@ -9,7 +9,11 @@ int FillArray(string[] array) // To fill the array of strings by entering them f
     Console.WriteLine("Please enter all strings of this array separated by <ENTER>");
     for (int index = 0; index < array.Length; index++)
     {
-        array[index]=Console.ReadLine();
+// To remove debug warning about reading NULL
+    //    array[index]=Console.ReadLine();
+        string? line=Console.ReadLine();
+        array[index]=line ?? "";
+
         if(array[index].Length <= 3) sizeNew += 1;
     }
     return sizeNew; // transfer value of size for new array with short strings
